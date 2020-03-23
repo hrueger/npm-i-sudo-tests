@@ -1,0 +1,31 @@
+name: "Test"
+
+on: [push]
+
+jobs:
+  osxUbuntuNoSudo:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
+    name: No sudo on ${{matrix.os}} 
+    runs-on: ${{matrix.os}}
+    steps:
+    - uses: actions/checkout@v1
+    - name: Clone NativeScript Demo App
+      run: git clone https://github.com/NativeScript/nativescript-marketplace-demo
+    - name: Install dependencies
+      run: npm install
+      working-directory: nativescript-marketplace-demo
+  osxUbuntuWithSudo:
+    strategy:
+        matrix:
+        os: [ubuntu-latest, macOS-latest]
+    name: Sudo on ${{matrix.os}} 
+    runs-on: ${{matrix.os}}
+    steps:
+    - uses: actions/checkout@v1
+    - name: Clone NativeScript Demo App
+        run: git clone https://github.com/NativeScript/nativescript-marketplace-demo
+    - name: Install dependencies
+        run: sudo npm install
+        working-directory: nativescript-marketplace-demo
