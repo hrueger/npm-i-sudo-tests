@@ -18,7 +18,7 @@ jobs:
       working-directory: nativescript-marketplace-demo
   osxUbuntuWithSudo:
     strategy:
-        matrix:
+      matrix:
         os: [ubuntu-latest, macOS-latest]
     name: Sudo on ${{matrix.os}} 
     runs-on: ${{matrix.os}}
