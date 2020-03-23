@@ -12,11 +12,8 @@ jobs:
     runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@v1
-    - name: Clone NativeScript Demo App
-      run: git clone https://github.com/NativeScript/nativescript-marketplace-demo
-    - name: Install dependencies
-      run: npm install
-      working-directory: nativescript-marketplace-demo
+    - name: Install
+      run: npm install -g nativescript
   osxUbuntuWithSudo:
     strategy:
       matrix:
@@ -26,8 +23,5 @@ jobs:
     runs-on: ${{matrix.os}}
     steps:
     - uses: actions/checkout@v1
-    - name: Clone NativeScript Demo App
-      run: git clone https://github.com/NativeScript/nativescript-marketplace-demo
-    - name: Install dependencies
-      run: sudo npm install
-      working-directory: nativescript-marketplace-demo
+    - name: Install
+      run: sudo npm install -g nativescript
