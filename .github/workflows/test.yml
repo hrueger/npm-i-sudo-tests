@@ -7,6 +7,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest]
+      fail-fast: false
     name: No sudo on ${{matrix.os}} 
     runs-on: ${{matrix.os}}
     steps:
@@ -20,6 +21,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest]
+      fail-fast: false
     name: Sudo on ${{matrix.os}} 
     runs-on: ${{matrix.os}}
     steps:
